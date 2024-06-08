@@ -1,0 +1,40 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.6.0
+    hooks:
+      - id: trailing-whitespace
+        args: [--markdown-linebreak-ext=md]
+      - id: end-of-file-fixer
+      - id: check-json
+      - id: check-toml
+      - id: check-xml
+      - id: check-yaml
+      - id: check-added-large-files
+      - id: check-merge-conflict
+      - id: check-executables-have-shebangs
+      - id: check-shebang-scripts-are-executable
+  - repo: local
+    hooks:
+      - id: shell-fmt-go
+        name: shfmt
+        description: Rewrites all shell scripts to a canonical format.
+        language: golang
+        additional_dependencies:
+          - mvdan.cc/sh/v3/cmd/shfmt@v3.8.0
+        entry: shfmt
+        types:
+          - file
+          - shell
+        exclude_types:
+          - zsh
+        args:
+          - -w
+          - -s
+          - -l
+          - -i
+          - "2"
+  - repo: https://github.com/codespell-project/codespell
+    rev: v2.2.6
+    hooks:
+      - id: codespell
+        additional_dependencies: ["tomli>=2.0.1"]

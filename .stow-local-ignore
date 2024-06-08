@@ -3,3 +3,4 @@
 ^/.git
 
 ^/scripts
+^/.pre-commit-config.yaml
