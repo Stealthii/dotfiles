@@ -1,0 +1,109 @@
+#!/usr/bin/env zsh
+#
+# This script is a starting point for setting up a new macOS machine. 
+# This script is based on a tutorial I wrote for setting up an ARM based
+# macOS machine from scratch.
+
+#################
+# Initial setup #
+#################
+
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Terminal Emulators
+brew install --cask alacritty iterm2
+
+# Docker Desktop
+# (do not use brew formula docker, you will have a bad time and a headache)
+brew install --cask docker
+
+# GPG Suite
+brew install --cask gpg-suite
+
+# Editors
+brew install --cask visual-studio-code
+brew install vim neovim
+ 
+# VCS (see Git section later for configuration settings)
+brew install gh git git-filter-repo git-lfs git-svn mercurial subversion
+git lfs install --system
+
+# Environment & DevOps utilities
+brew install awscli curl dos2unix go htop httpie jq kubectx kubernetes-cli nmap \
+             pandoc pssh rpm2cpio rust screen tcpdump telnet tmux tree vault
+
+##################
+# Other examples #
+##################
+
+# Appstore apps via mas
+brew install mas
+mas install \
+    408981434 \  # iMovie
+    1274495053 \ # Microsoft To-Do
+    1444383602   # Goodnotes
+
+# pyenv
+brew install pyenv pyenv-pip-migrate pyenv-virtualenv
+pyenv install 3.8.16
+pyenv global 3.8.16
+
+# Install your favorite macOS apps via Cask
+brew install --cask airy bleunlock balenaetcher discord gimp grandperspective imagealpha imageoptim jiggler keka lastpass removebg robofont skype slack tidal tigervnc-viewer vlc vmware-fusion
+
+# Replace pre-installed apps with casks (if you want to control updates)
+rm -rf "/Applications/Firefox.app"
+rm -rf "/Applications/Google Chrome.app"
+brew install --cask firefox google-chrome
+
+#########################
+# Shell magic & plugins #
+#########################
+
+# Use modern zsh from Homebrew, and zplug for plugins
+brew install zsh zplug
+
+# direnv for environment additions that are directory specific (recursive)
+brew install direnv
+
+# Silver Searcher (ag) as ack replacement, fzf for fuzzy search (Ctrl+R), exa for pretty 'ls' replacement
+brew install the_silver_searcher fzf exa
+
+# Install a couple nerd fonts (dev glyphs, etc.)
+brew tap homebrew/cask-fonts
+brew install --cask font-hack-nerd-font font-caskaydia-cove-nerd-font
+
+##################################
+# Alacritty & tmux configuration #
+##################################
+
+# Install Alacritty
+brew install --cask alacritty
+
+# Use thin strokes for better font rendering on Retina displays
+defaults write -g AppleFontSmoothing -int 0
+
+# Install latest tmux, and ensure macOS helper command is available
+brew install tmux reattach-to-user-namespace
+
+# Install tmux plugin manager
+git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+
+##########################
+# NeoVim developer setup #
+##########################
+
+# Install NeoVim, and/or Vim from Homebrew
+brew install neovim vim
+
+# pre-commit
+brew install pre-commit
+
+# Linting
+# I recommend providing these with brew, *even if* you may provide them
+# with an override environment like pyenv/pip, nvm etc. This ensures that
+# these utilities are auto-updated, and always available in case of absence
+# from your project/personal environment.
+brew install ctags black flake8 isort mypy shfmt eslint prettier perltidy xmllint yamlfix
