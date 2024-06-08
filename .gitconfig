@@ -1,0 +1,48 @@
+[user]
+	name = Daniel Porter
+	email = dpreid@gmail.com
+        signingkey = DACE6B85AA88DE48
+[color]
+	ui = auto
+[alias]
+	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
+        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%ad)%Creset %s %C(bold blue)<%an>%Creset %ci' --abbrev-commit --date=format-local:'%d/%m/%Y'
+	showtrackedignored = ls-files -i --exclude-standard
+[push]
+	default = current
+	gpgSign = if-asked
+[web]
+	browser = google-chrome
+[mergetool "nvim"]
+	cmd = nvim -f -c \"Gdiffsplit!\" \"$MERGED\"
+[merge]
+	tool = nvim
+[mergetool]
+	prompt = false
+[http]
+	cookiefile = /Users/dporter/.gitcookies
+[rebase]
+	autoStash = true
+	autosquash = true
+[rerere]
+	enabled = true
+[pull]
+	rebase = true
+[init]
+	defaultBranch = main
+[credential]
+	helper = store
+[tag]
+	gpgSign = false
+[fetch]
+	prune = true
+[core]
+	editor = nvim
+	excludesfile = /Users/dporter/.gitignore-global
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+[gitreview]
+	username = stealthii
