@@ -24,8 +24,7 @@ if _has direnv; then emulate zsh -c "$(direnv hook zsh)"; fi
 # PyEnv integration
 if _has pyenv; then eval "$(pyenv init -)"; fi
 
-# Hail Zi or Zplug
-export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
+# Hail Zi
 if _has zi; then
     # Theme
     zi ice depth=1; zi light romkatv/powerlevel10k
@@ -40,24 +39,6 @@ if _has zi; then
     zi light zpm-zsh/ls
     #zi light Stealthii/zpm-ls
     zi light MichaelAquilina/zsh-autoswitch-virtualenv
-elif [ -d $ZPLUG_HOME ]; then
-    source $ZPLUG_HOME/init.zsh
-
-    # Theme
-    zplug "romkatv/powerlevel10k", as:theme, depth:1
-
-    # Bundles from oh-my-zsh that I use
-    zplug "plugins/git", from:oh-my-zsh
-    zplug "plugins/ssh-agent", from:oh-my-zsh
-    #zplug "hkupty/ssh-agent"
-    zplug "zsh-users/zsh-syntax-highlighting", defer:2
-    zplug "plugins/command-not-found", from:oh-my-zsh
-    zplug "lib/history", from:oh-my-zsh
-    zplug "zpm-zsh/ls"
-    zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
-
-    # Then, source plugins and add commands to $PATH
-    zplug load
 fi
 
 # ssh-agent
