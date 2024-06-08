@@ -11,11 +11,9 @@ _has() {
 # Load direnv before instant prompt
 if _has direnv; then emulate zsh -c "$(direnv export zsh)"; fi
 
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# oh-my-posh
+if [ "$TERM_PROGRAM" != "Apple_Terminal" ]; then
+  eval "$(oh-my-posh init zsh --config ~/.config/ohmyposh/stealthii.omp.toml)"
 fi
 
 # Hook direnv after instant prompt
@@ -26,8 +24,6 @@ if _has pyenv; then eval "$(pyenv init -)"; fi
 
 # Hail Zi
 if _has zi; then
-    # Theme
-    zi ice depth=1; zi light romkatv/powerlevel10k
     # oh-my-zsh
     zi snippet OMZP::git
     zi snippet OMZP::command-not-found
@@ -84,6 +80,3 @@ export PATH="$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_mod
 
 # frum Ruby manager
 if _has frum; then eval "$(frum init)"; fi
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
