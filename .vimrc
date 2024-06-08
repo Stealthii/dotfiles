@@ -1,4 +1,8 @@
 set nocompatible
+
+" Old vimrc config
+" Kept for fun reference to my old setup, but since moved to NeoVim
+
 " =======
 " Plugins
 " =======

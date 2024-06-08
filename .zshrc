@@ -2,8 +2,6 @@
 if [[ -r "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" ]]; then
   source "${XDG_CONFIG_HOME:-${HOME}/.config}/zi/init.zsh" && zzinit
 fi
-# Homebrew (done in .zprofile)
-#eval "$(/opt/homebrew/bin/brew shellenv)"
 
 # Returns whether the given command is executable or aliased.
 _has() {
@@ -25,10 +23,6 @@ if _has direnv; then emulate zsh -c "$(direnv hook zsh)"; fi
 
 # PyEnv integration
 if _has pyenv; then eval "$(pyenv init -)"; fi
-
-# puppetng docker tools
-#export PATH=$HOME/Documents/puppet/administration-tools/bin:$PATH
-#source $HOME/.puppetng.env
 
 # Hail Zi or Zplug
 export ZPLUG_HOME=$HOMEBREW_PREFIX/opt/zplug
@@ -61,18 +55,6 @@ elif [ -d $ZPLUG_HOME ]; then
     zplug "lib/history", from:oh-my-zsh
     zplug "zpm-zsh/ls"
     zplug "MichaelAquilina/zsh-autoswitch-virtualenv"
-
-    # OSX Plugins
-    #zplug "iam4x/zsh-iterm-touchbar"
-
-    # Install plugins if there are plugins that have not been installed
-    # Won't work with instant prompt emabled
-    # if ! zplug check --verbose; then
-    #     printf "Install? [y/N]: "
-    #     if read -q; then
-    #         echo; zplug install
-    #     fi
-    # fi
 
     # Then, source plugins and add commands to $PATH
     zplug load
@@ -115,9 +97,6 @@ if _has fzf && _has ag; then
     --color info:108,prompt:109,spinner:108,pointer:168,marker:168
     '
 fi
-
-#Pyenv integration
-#eval "$(pyenv init -)"
 
 export PATH="$HOME/.local/bin:$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$HOME/go/bin:$PATH"
 
