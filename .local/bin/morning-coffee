@@ -1,0 +1,36 @@
+#!/usr/bin/env zsh
+
+# Returns whether the given command is executable or aliased.
+_has() {
+  return $( whence $1 >/dev/null )
+}
+
+# Update Homebrew packages
+if _has brew; then
+    brew update
+    brew upgrade
+fi
+
+# Update python packages
+# if _has pip; then
+#     pip install -U pip ruff mypy
+# fi
+
+# Update zi plugins
+if _has zi; then
+    zi update --all
+# Update zsh plugins
+elif _has zplug; then
+    zplug update
+fi
+
+# Update NeoVim plugins
+if _has nvim; then
+    #nvim +PlugUpgrade +PlugUpdate +UpdateRemotePlugins +qa
+    # nvim +Lazy update +UpdateRemotePlugins +qa
+fi
+
+# Update tmux plugins
+if [ -d $HOME/.tmux/plugins/tpm ]; then
+    $HOME/.tmux/plugins/tpm/bin/update_plugins all
+fi
