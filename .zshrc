@@ -37,6 +37,7 @@ if _has zi; then
     #zi light hkupty/ssh-agent
     zi light zsh-users/zsh-syntax-highlighting
     zi light zpm-zsh/ls
+    zi ice has'zoxide'; zi light z-shell/zsh-zoxide
     #zi light Stealthii/zpm-ls
     zi light MichaelAquilina/zsh-autoswitch-virtualenv
 fi
