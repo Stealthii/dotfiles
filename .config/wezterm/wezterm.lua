@@ -143,6 +143,7 @@ config.mouse_bindings = {
 
 -- Bindings
 --config.disable_default_key_bindings = true
+config.send_composed_key_when_left_alt_is_pressed = true
 config.send_composed_key_when_right_alt_is_pressed = true
 config.use_ime = true
 config.use_dead_keys = false
@@ -229,16 +230,16 @@ config.keys = {
 	{ key = ",", mods = "SHIFT|OPT", action = act({ SendString = "¯" }) },
 	{ key = ".", mods = "SHIFT|OPT", action = act({ SendString = "˘" }) },
 	-- Goto buffer in position...
-	{ key = "1", mods = "OPT", action = act({ SendString = "¡" }) },
-	{ key = "2", mods = "OPT", action = act({ SendString = "™" }) },
-	{ key = "3", mods = "OPT", action = act({ SendString = "£" }) },
-	{ key = "4", mods = "OPT", action = act({ SendString = "¢" }) },
-	{ key = "5", mods = "OPT", action = act({ SendString = "∞" }) },
-	{ key = "6", mods = "OPT", action = act({ SendString = "§" }) },
-	{ key = "7", mods = "OPT", action = act({ SendString = "¶" }) },
-	{ key = "8", mods = "OPT", action = act({ SendString = "•" }) },
-	{ key = "9", mods = "OPT", action = act({ SendString = "ª" }) },
-	{ key = "0", mods = "OPT", action = act({ SendString = "º" }) },
+	-- { key = "1", mods = "OPT", action = act({ SendString = "¡" }) },
+	-- { key = "2", mods = "OPT", action = act({ SendString = "™" }) },
+	-- { key = "3", mods = "OPT", action = act({ SendString = "£" }) },
+	-- { key = "4", mods = "OPT", action = act({ SendString = "¢" }) },
+	-- { key = "5", mods = "OPT", action = act({ SendString = "∞" }) },
+	-- { key = "6", mods = "OPT", action = act({ SendString = "§" }) },
+	-- { key = "7", mods = "OPT", action = act({ SendString = "¶" }) },
+	-- { key = "8", mods = "OPT", action = act({ SendString = "•" }) },
+	-- { key = "9", mods = "OPT", action = act({ SendString = "ª" }) },
+	-- { key = "0", mods = "OPT", action = act({ SendString = "º" }) },
 	-- Pin/unpin buffer
 	{ key = "p", mods = "OPT", action = act({ SendString = "π" }) },
 	-- Close buffer
