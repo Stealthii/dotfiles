@@ -1,0 +1,37 @@
+#!/bin/bash
+
+# Handle argument against stream urls
+station="$1"
+
+case "$station" in
+bassdrive | bd | dnb)
+    url="https://www.bassdrive.com/bassdrive.m3u"
+    ;;
+secret-agent | secret | agent | spy)
+    url="https://somafm.com/secretagent130.pls"
+    ;;
+defcon | dc | hacker)
+    url="https://somafm.com/defcon256.pls"
+    ;;
+beat-blender | beat | blender)
+    url="https://somafm.com/beatblender130.pls"
+    ;;
+lfg | lofi-girl)
+    url="https://www.youtube.com/watch?v=jfKfPfyJRdk"
+    ;;
+lfg-sw | lfg-synthwave)
+    url="https://www.youtube.com/watch?v=4xDzrJKXOOY"
+    ;;
+*)
+    echo "Pick a station you fool."
+    exit 1
+    ;;
+esac
+
+# Open URL with VLC
+open -a VLC.app "$url"
+
+# Older
+# if ! pgrep -x "VLC" >/dev/null; then
+#     open /Applications/VLC.app --args "$url"
+# fi
