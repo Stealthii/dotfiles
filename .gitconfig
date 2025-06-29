@@ -1,12 +1,12 @@
 [user]
 	name = Daniel Porter
 	email = dpreid@gmail.com
-        signingkey = DACE6B85AA88DE48
+  signingkey = DACE6B85AA88DE48
 [color]
 	ui = auto
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
-        lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%ad)%Creset %s %C(bold blue)<%an>%Creset %ci' --abbrev-commit --date=format-local:'%d/%m/%Y'
+  lgd = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %Cgreen(%ad)%Creset %s %C(bold blue)<%an>%Creset %ci' --abbrev-commit --date=format-local:'%d/%m/%Y'
 	showtrackedignored = ls-files -i --exclude-standard
 [push]
 	default = current
@@ -19,6 +19,7 @@
 	tool = nvim
 [mergetool]
 	prompt = false
+	keepBackup = false
 [http]
 	cookiefile = /Users/dporter/.gitcookies
 [rebase]

@@ -59,6 +59,12 @@ if _has nvim; then
     alias vi='nvim'
 fi
 
+# Podman over Docker
+if _has podman; then
+    alias docker=podman
+    alias docker-compose=podman-compose
+fi
+
 # FZF
 if [ -e $HOMEBREW_PREFIX/opt/fzf/shell/completion.zsh ]; then
     source $HOMEBREW_PREFIX/opt/fzf/shell/key-bindings.zsh
