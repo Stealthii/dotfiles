@@ -6,8 +6,8 @@ local act = wezterm.action
 local config = wezterm.config_builder()
 
 -- Spawn a zsh shell in login mode, launching tmux
-config.default_prog = { "/opt/homebrew/bin/zsh", "--login", "-c", "tmux attach 2>/dev/null || tmux" }
---config.default_prog = { "/opt/homebrew/bin/zsh", "--login" }
+--config.default_prog = { "/opt/homebrew/bin/zsh", "--login", "-c", "tmux attach 2>/dev/null || tmux" }
+config.default_prog = { "/opt/homebrew/bin/zsh", "--login" }
 
 -- Color scheme
 config.color_scheme = "Tokyo Night"
