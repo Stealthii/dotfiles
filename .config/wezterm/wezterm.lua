@@ -13,115 +13,23 @@ config.default_prog = { "/opt/homebrew/bin/zsh", "--login" }
 config.color_scheme = "Tokyo Night"
 
 -- Font
---config.font = wezterm.font({ family = "Monaspace Neon", weight = "Light" })
-config.font_size = 12.1
--- Offset corrections for Monaspice Nerd Fonts
-config.underline_position = -4
-config.strikethrough_position = 14
--- Enable ligatures for all fonts where possible, specifically Monaspace
+config.font_size = 12
 config.harfbuzz_features = {
-	"calt",
-	-- "dlig", -- discretionary ligatures, this enables the lot by design
-	"ss01", -- ligatures related to the equals glyph like != and ===.
-	"ss02", -- ligatures related to the greater than or less than operators.
-	"ss03", -- ligatures related to arrows like -> and =>.
-	"ss04", -- ligatures related to markup, like </ and />.
-	"ss05=0", -- ligatures related to the F# programming language, like |>.
-	"ss06", -- ligatures related to repeated uses of # such as ## or ###.
-	"ss07", -- ligatures related to the asterisk like ***.
-	"ss08", -- ligatures related to combinations like .= or .-.
-	"liga",
+	-- "cv04",
+	"cv06",
+	"cv07",
+	-- "cv32",
+	-- "cv34",
+	-- "cv37",
+	-- "cv39",
+	"cv61",
 }
 config.font = wezterm.font_with_fallback({
-	{ family = "MonaspiceNe Nerd Font Mono", weight = "Light" },
-	{ family = "Monaspace Neon", weight = "Light" },
+	{ family = "Maple Mono NF CN", weight = "Light" },
 	"Noto Sans Symbols 2",
 	"Noto Color Emoji",
 	"Symbols Nerd Font Mono",
 })
--- Override italic font use with Monaspace Radon
-config.font_rules = {
-	{
-		intensity = "Normal",
-		italic = true,
-		font = wezterm.font_with_fallback({
-			{
-				family = "Monaspace Radon",
-				weight = "Light",
-			},
-		}),
-	},
-	{
-		intensity = "Bold",
-		italic = true,
-		font = wezterm.font_with_fallback({
-			{
-				family = "Monaspace Radon",
-				weight = "Medium",
-			},
-		}),
-	},
-	{
-		intensity = "Half",
-		italic = true,
-		font = wezterm.font_with_fallback({
-			{
-				family = "Monaspace Radon",
-				weight = "ExtraLight",
-			},
-		}),
-	},
-}
--- config.font_rules = {
--- 	{
--- 		intensity = "Bold",
--- 		italic = false,
--- 		font = wezterm.font({
--- 			family = "Monaspace Neon",
--- 			weight = "DemiBold",
--- 		}),
--- 	},
--- 	{
--- 		italic = false,
--- 		intensity = "Half",
--- 		font = wezterm.font({
--- 			family = "Monaspace Neon",
--- 			weight = "ExtraLight",
--- 		}),
--- 	},
--- 	{
--- 		italic = false,
--- 		intensity = "Normal",
--- 		font = wezterm.font({
--- 			family = "Monaspace Neon",
--- 			weight = "Light",
--- 		}),
--- 	},
--- 	{
--- 		intensity = "Bold",
--- 		italic = true,
--- 		font = wezterm.font({
--- 			family = "Monaspace Radon",
--- 			weight = "DemiBold",
--- 		}),
--- 	},
--- 	{
--- 		italic = true,
--- 		intensity = "Half",
--- 		font = wezterm.font({
--- 			family = "Monaspace Radon",
--- 			weight = "ExtraLight",
--- 		}),
--- 	},
--- 	{
--- 		italic = true,
--- 		intensity = "Normal",
--- 		font = wezterm.font({
--- 			family = "Monaspace Radon",
--- 			weight = "Light",
--- 		}),
--- 	},
--- }
 -- config.window_background_opacity = 0.45
 -- config.macos_window_background_blur = 20
 config.enable_tab_bar = false
